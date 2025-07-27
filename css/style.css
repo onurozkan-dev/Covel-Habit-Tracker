@@ -1,0 +1,168 @@
+/* css/style.css */
+/* Reset & base */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  color: #1f1f27;
+  line-height: 1.5;
+  background: #ffffff;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  padding: 1rem 0;
+}
+.navbar .logo { font-size: 1.25rem; font-weight: bold; text-decoration:none; color:#1f1f27; display:flex; align-items:center; }
+.navbar .logo img { height:32px; margin-right:8px; }
+.navbar nav { float: right; }
+.navbar nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #1f1f27;
+  font-weight: 500;
+}
+.btn-signup {
+  padding: 0.5rem 1rem;
+  border-radius: 24px;
+  background: linear-gradient(90deg, #8954de, #0a82f2);
+  color: #fff !important;
+}
+
+/* Hero */
+.hero {
+  padding: 6rem 0;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+.btn-gradient {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(90deg, #8954de, #0a82f2);
+  color: #fff;
+}
+.subtext {
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+/* Trusted Logos */
+.trusted {
+  padding: 4rem 0;
+  text-align: center;
+}
+.trusted p {
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: #555;
+}
+.trusted .logos {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.trusted .logos img {
+  max-height: 600px;
+  opacity: 0.6;
+}
+
+/* Features */
+.features {
+  padding: 4rem 0;
+  text-align: center;
+}
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 2rem;
+}
+.card {
+  background: #f9f9fb;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: left;
+}
+.card h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+.card p { color: #555; }
+
+/* CTA Banner */
+.cta-banner {
+  background: #f4f5f8;
+  padding: 4rem 0;
+  text-align: center;
+}
+.cta-banner h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Footer */
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #888;
+}
+.footer nav a {
+  margin: 0 0.75rem;
+  color: #888;
+  text-decoration: none;
+}
+/* tüm logolar için */
+.trusted .logos img {
+  max-height: 600px;
+  filter: brightness(1.1) contrast(1.1);
+}
+
+:root {
+  --primary-accent: #7B2FF2;
+  --secondary-accent: #1AC8FC;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 0.5em 1.5em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-gradient:hover {
+  filter: brightness(1.1);
+}
+
+a {
+  color: var(--primary-accent);
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--secondary-accent);
+}
+

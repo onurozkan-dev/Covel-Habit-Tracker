@@ -1,0 +1,142 @@
+/* css/financial.css */
+/* Uses global variables from style.css */
+
+.financial {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  background: var(--sec-bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Page Title */
+.financial h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+/* Section Container */
+.financial .section {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.6s ease forwards;
+}
+
+/* Delay each of your 6 sections */
+.financial .section:nth-of-type(1) { animation-delay: 0.2s; }
+.financial .section:nth-of-type(2) { animation-delay: 0.4s; }
+.financial .section:nth-of-type(3) { animation-delay: 0.6s; }
+.financial .section:nth-of-type(4) { animation-delay: 0.8s; }
+.financial .section:nth-of-type(5) { animation-delay: 1.0s; }
+.financial .section:nth-of-type(6) { animation-delay: 1.2s; }
+
+/* Section Headings */
+.financial h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  position: relative;
+}
+.financial h2::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; 
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Paragraphs & Lists */
+.financial p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+.financial ul, .financial ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+}
+.financial ul li, .financial ol li {
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+.financial ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+.financial ol {
+  counter-reset: item;
+}
+.financial ol li {
+  counter-increment: item;
+}
+.financial ol li::before {
+  content: counter(item) '.';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* Images */
+.financial img {
+  display: block;
+  width: 100%;
+  margin: 1.5rem auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.financial img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+/* Links */
+.financial a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 2px dashed var(--accent);
+}
+.financial a:hover {
+  opacity: 0.75;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .financial {
+    padding: 3rem 1.5rem;
+  }
+  .financial h1 {
+    font-size: 2.5rem;
+  }
+  .financial h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

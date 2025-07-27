@@ -1,0 +1,68 @@
+:root {
+  --primary-accent: #7B2FF2;
+  --secondary-accent: #1AC8FC;
+}
+.auth-modal {
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+.auth-modal-content {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(33,150,243,0.13);
+  padding: 2em 2.5em 1.5em 2.5em;
+  min-width: 320px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.auth-tabs {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+.auth-tabs button {
+  background: none;
+  border: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #888;
+  padding: 0.3em 1em;
+  border-bottom: 2.5px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.auth-tabs button.active {
+  color: var(--primary-accent, #7B2FF2);
+  border-bottom: 2.5px solid var(--primary-accent, #7B2FF2);
+}
+.auth-modal-content input[type="email"],
+.auth-modal-content input[type="password"] {
+  padding: 0.6em 1em;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  font-size: 1em;
+  background: #fafbfc;
+  color: #222;
+  margin-bottom: 1em;
+  width: 100%;
+}
+.auth-modal-content button.btn-gradient {
+  width: 100%;
+  margin-top: 0.5em;
+  background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+  color: #fff;
+}
+@media (max-width: 480px) {
+  .auth-modal-content {
+    padding: 1em 0.5em;
+    min-width: 90vw;
+  }
+} 

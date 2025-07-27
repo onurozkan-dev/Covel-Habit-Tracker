@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Covel • Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/tracker.css" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4caf50">
+</head>
+<body>
+
+  <!-- Navbar (index.html ile aynı) -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/covel_logo.png" alt="Covel Logo" />
+        Covel
+      </a>
+      <nav>
+        <a href="tracker.html">Tracker</a>
+        <a href="add.html">Add Habit</a>
+        <a href="profile.html">Profile</a>
+        <a href="#" class="btn-signup">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dashboard Overview Section -->
+  <section class="dashboard-overview">
+    <div class="dashboard-header">
+      <div class="dashboard-progress">
+        <div class="dashboard-ring" id="dashboard-ring">
+          <span class="dashboard-percent" id="dashboard-percent">0%</span>
+        </div>
+      </div>
+      <div class="dashboard-title-group">
+        <h2 id="dashboard-title">Weekly Progress</h2>
+        <button class="btn-gradient dashboard-share">Share</button>
+      </div>
+      <div class="dashboard-avatar">
+        <img src="images/covel_logo.png" alt="User Avatar" style="width:48px;height:48px;border-radius:50%;background:#fff;" />
+      </div>
+    </div>
+    <div class="dashboard-targets">
+      <h3>Targets</h3>
+      <ul id="dashboard-targets-list">
+        <!-- JS will populate -->
+      </ul>
+    </div>
+    <div class="dashboard-timeline">
+      <h3>Timeline</h3>
+      <ul id="dashboard-timeline-list">
+        <!-- JS will populate -->
+      </ul>
+    </div>
+  </section>
+  <!-- End Dashboard Overview Section -->
+
+  <!-- Tracker -->
+  <section class="tracker">
+    <div class="container">
+      <h1>Daily Habit Tracker</h1>
+
+      <!-- Search bar for filtering habits -->
+      <input type="text" id="habit-search" placeholder="Search habits..." style="margin-bottom: 1em; width: 100%; max-width: 400px; padding: 0.5em; font-size: 1em;" />
+
+      <!-- Hafta arası gezinme -->
+      <div class="week-nav">
+        <button id="prev-week">←</button>
+        <span id="week-range">Jul 21 – Jul 27</span>
+        <button id="next-week">→</button>
+      </div>
+
+      <!-- Tablo görüntüsü -->
+      <table class="tracker-table">
+        <thead>
+          <tr>
+            <th>Habit</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="habits-body">
+          <!-- Örnek satır -->
+          <tr>
+            <td class="habit-name">Read</td>
+            <td><input type="checkbox" data-day="0" data-habit="read"></td>
+            <td><input type="checkbox" data-day="1" data-habit="read"></td>
+            <td><input type="checkbox" data-day="2" data-habit="read"></td>
+            <td><input type="checkbox" data-day="3" data-habit="read"></td>
+            <td><input type="checkbox" data-day="4" data-habit="read"></td>
+            <td><input type="checkbox" data-day="5" data-habit="read"></td>
+            <td><input type="checkbox" data-day="6" data-habit="read"></td>
+          </tr>
+          <!-- Başka alışkanlıkları JS ile ekleyeceğiz -->
+        </tbody>
+      </table>
+
+      <a href="add.html" class="btn-gradient">+ Add New Habit</a>
+
+      <!-- JSON Import/Export -->
+      <div style="margin-top:1.5em;display:flex;gap:1em;align-items:center;">
+        <button id="export-json" class="btn-gradient">Export Data</button>
+        <button id="import-json" class="btn-gradient">Import Data</button>
+        <input type="file" id="import-json-file" accept="application/json" style="display:none;" />
+      </div>
+
+    </div>
+  </section>
+
+  <div id="onboarding-tour" style="display:none;"></div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+  <script src="js/tracker.js"></script>
+</body>
+</html>

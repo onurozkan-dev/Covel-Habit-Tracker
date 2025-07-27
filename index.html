@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Covel • Habit Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4caf50">
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/covel_logo.png" alt="Covel Logo" />
+        Covel
+      </a>
+      <nav>
+        <a href="tracker.html" class="btn-signup">Tracker</a>
+        <a href="add.html" class="btn-signup">Add Habit</a>
+        <a href="profile.html" class="btn-signup">Profile</a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>The Ultimate Habit Tracker to Get Things Done</h1>
+      <p>Build streaks, track progress & crush your goals every day.</p>
+      <a href="page2.html" id="get-started-btn" class="btn-gradient">
+        Get Started <span class="arrow">→</span>
+      </a>
+      <p class="subtext">Free forever. No credit card required.</p>
+    </div>
+  </section>
+
+  <!-- Trusted Logos -->
+  <section class="trusted">
+    <div class="container">
+      <p>Trusted by grinders worldwide</p>
+      <p class="subtext">Covel 1.0 Beta. Its in development progress.</p>
+      <div class="logos">
+        <img src="images/natekainnn.png" alt="Logo1" />
+        
+        <img src="images/Aaron.png" alt="Logo3" />
+        
+        <img src="images/lena.png" alt="Logo5" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <h2>Everything you need to stay consistent</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Daily Check-ins</h3>
+          <p>Mark your habits each day and never lose your streak.</p>
+        </div>
+        <div class="card">
+          <h3>Streak Stats</h3>
+          <p>Visualize your progress with intuitive charts.</p>
+        </div>
+        <div class="card">
+          <h3>Custom Reminders</h3>
+          <p>Get notified exactly when you need to.</p>
+        </div>
+        <div class="card">
+          <h3>Dark & Light Mode</h3>
+          <p>Use Covel in your preferred theme.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to build unbreakable habits?</h2>
+      <a href="add.html" id="get-started-btn" class="btn-gradient">
+        Join Covel Now <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Covel. All rights reserved.</p>
+      <nav>
+        <a href="#">Made by</a>
+        <a href="#">Onur</a>
+        <a href="#">Özkan</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+  <span id="user-info" style="display:none;margin-left:1em;"></span>
+  <button id="logout-btn" style="display:none;margin-left:1em;" class="btn-gradient">Log Out</button>
+  <!-- Auth Modal -->
+  <div id="auth-modal" class="auth-modal" style="display:none;">
+    <div class="auth-modal-content">
+      <div class="auth-tabs">
+        <button id="tab-signup" class="active">Sign Up</button>
+        <button id="tab-login">Log In</button>
+      </div>
+      <form id="signup-form">
+        <input type="email" id="signup-email" placeholder="Email" required />
+        <input type="password" id="signup-password" placeholder="Password" required />
+        <button type="submit" class="btn-gradient">Sign Up</button>
+      </form>
+      <form id="login-form" style="display:none;">
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Password" required />
+        <button type="submit" class="btn-gradient">Log In</button>
+      </form>
+      <button onclick="hideAuthModal()" class="btn-gradient" style="margin-top:1em;">Close</button>
+    </div>
+  </div>
+  <link rel="stylesheet" href="css/auth.css">
+  <script src="js/auth.js"></script>
+  <script>
+    document.querySelector('.btn-signup').onclick = showAuthModal;
+    document.getElementById('tab-signup').onclick = function() {
+      this.classList.add('active');
+      document.getElementById('tab-login').classList.remove('active');
+      document.getElementById('signup-form').style.display = '';
+      document.getElementById('login-form').style.display = 'none';
+    };
+    document.getElementById('tab-login').onclick = function() {
+      this.classList.add('active');
+      document.getElementById('tab-signup').classList.remove('active');
+      document.getElementById('signup-form').style.display = 'none';
+      document.getElementById('login-form').style.display = '';
+    };
+  </script>
+</body>
+</html>

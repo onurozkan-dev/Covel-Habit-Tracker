@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Covel • Calendar View</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/tracker.css" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4caf50">
+  <style>
+    .calendar-heatmap {
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
+      margin: 2em auto;
+      width: max-content;
+      background: #181b20;
+      padding: 1.5em 1em 1em 1em;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+    }
+    .calendar-week {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .calendar-day {
+      width: 16px;
+      height: 16px;
+      border-radius: 3px;
+      background: #222;
+      transition: background 0.2s;
+      cursor: pointer;
+      position: relative;
+    }
+    .calendar-day[data-count="0"] { background: #222; }
+    .calendar-day[data-count="1"] { background: #4caf50; }
+    .calendar-day[data-count="2"] { background: #43a047; }
+    .calendar-day[data-count="3"] { background: #388e3c; }
+    .calendar-day[data-count="4"] { background: #2e7d32; }
+    .calendar-day[data-count="5"] { background: #1b5e20; }
+    .calendar-day:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 120%; top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      color: #222;
+      padding: 0.4em 0.7em;
+      border-radius: 6px;
+      font-size: 0.95em;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+      z-index: 10;
+    }
+    .calendar-labels {
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
+      margin-left: 60px;
+      margin-bottom: 0.5em;
+    }
+    .calendar-labels span {
+      color: #aaa;
+      font-size: 0.95em;
+      width: 16px;
+      text-align: center;
+      display: inline-block;
+    }
+    .calendar-habit-select {
+      margin: 2em auto 1em auto;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/covel_logo.png" alt="Covel Logo" />
+        Covel
+      </a>
+      <nav>
+        <a href="tracker.html">Tracker</a>
+        <a href="calendar.html" class="active">Calendar</a>
+        <a href="add.html">Add Habit</a>
+        <a href="profile.html">Profile</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="calendar-habit-select">
+    <label for="habit-select">Habit:</label>
+    <select id="habit-select">
+      <option value="__all__">All Habits</option>
+    </select>
+  </div>
+
+  <div class="calendar-labels">
+    <span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span>
+  </div>
+  <div class="calendar-heatmap" id="calendar-heatmap"></div>
+
+  <script src="js/calendar.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html> 

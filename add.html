@@ -1,0 +1,49 @@
+<div class="add-header">
+  <img src="images/covel_logo.png" alt="Add Habit" class="add-header-icon" />
+  <h1>Add a New Habit</h1>
+  <p class="add-desc">Create a new habit to track and improve your daily routine. Use AI or pick a template for inspiration!</p>
+  <hr class="add-divider" />
+</div>
+<form id="add-habit-form" class="add-form">
+  <label for="habit-name">Habit Name:</label>
+  <input type="text" id="habit-name" name="habit-name" required />
+
+  <!-- Category selector -->
+  <label for="habit-category">Category:</label>
+  <select id="habit-category" name="habit-category">
+    <option value="Health">Health</option>
+    <option value="Study">Study</option>
+    <option value="Finance">Finance</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <!-- Color picker -->
+  <label for="habit-color">Color:</label>
+  <input type="color" id="habit-color" name="habit-color" value="#4caf50" />
+
+  <!-- Reminder time -->
+  <label for="habit-reminder">Reminder Time:</label>
+  <input type="time" id="habit-reminder" name="habit-reminder" />
+  <button type="submit" class="btn-gradient">Add Habit</button>
+
+  <button type="button" id="ai-suggest" class="btn-gradient" style="margin-top:1em;">AI Suggest</button>
+  <div id="ai-suggestions" style="margin-top:1em;"></div>
+</form>
+<section class="add-templates">
+  <h2>Popular Templates</h2>
+  <div class="template-list" id="template-list"></div>
+</section>
+<link rel="stylesheet" href="css/add.css">
+
+<script src="js/add.js"></script>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4caf50">
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('service-worker.js');
+    });
+  }
+</script>
+</body>
+</html>

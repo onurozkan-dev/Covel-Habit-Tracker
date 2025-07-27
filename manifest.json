@@ -1,0 +1,21 @@
+{
+  "name": "Covel Habit Tracker",
+  "short_name": "Covel",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f6f8fa",
+  "theme_color": "#4caf50",
+  "description": "Track, build, and improve your habits with Covel!",
+  "icons": [
+    {
+      "src": "images/covel_logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/covel_logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 

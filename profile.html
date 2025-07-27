@@ -1,0 +1,88 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Covel • Profile</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4caf50">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/covel_logo.png" alt="Covel Logo" />
+        Covel
+      </a>
+      <nav>
+        <a href="tracker.html">Tracker</a>
+        <a href="add.html">Add Habit</a>
+        <a href="profile.html">Profile</a>
+        <a href="#" class="btn-signup">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Profile Section -->
+  <section class="profile">
+    <div class="container">
+      <h1>Your Profile</h1>
+
+      <!-- Stats Cards -->
+      <div class="stats-cards">
+        <div class="card">
+          <h3>Total Habits</h3>
+          <p id="total-habits">0</p>
+        </div>
+        <div class="card">
+          <h3>Completed This Week</h3>
+          <p id="completed-this-week">0</p>
+        </div>
+        <div class="card">
+          <h3>Avg. Completion Rate</h3>
+          <p id="avg-rate">0%</p>
+        </div>
+      </div>
+
+      <!-- Detailed Table -->
+      <h2>Habits Progress</h2>
+      <div class="profile-table-wrapper">
+        <table class="profile-table">
+          <thead>
+            <tr>
+              <th>Habit</th>
+              <th>Days Done</th>
+            </tr>
+          </thead>
+          <tbody id="profile-body">
+            <!-- JS dolduracak -->
+          </tbody>
+        </table>
+        <div id="badge-gallery" class="badge-gallery"></div>
+      </div>
+
+      <section class="theme-settings">
+        <h2>Custom Theme</h2>
+        <label for="primary-color">Primary Accent:</label>
+        <input type="color" id="primary-color" value="#4caf50" />
+        <label for="secondary-color">Secondary Accent:</label>
+        <input type="color" id="secondary-color" value="#2196f3" />
+        <button id="save-theme" class="btn-gradient">Save Theme</button>
+      </section>
+    </div>
+  </section>
+
+  <script src="js/profile.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html>
